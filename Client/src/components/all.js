@@ -1,5 +1,5 @@
 import React from "react";
-import Admin from "./admin.js";
+import Admin from "./select.js";
 import User from "./user.js";
 
 var App=()=>(

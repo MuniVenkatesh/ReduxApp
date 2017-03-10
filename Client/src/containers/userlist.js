@@ -1,5 +1,7 @@
 import React from "react";
 import {connect} from "react-redux";
+import {bindActionCreators} from "redux";
+import {selectedUser} from "../actions/index.js";
 
 export class User extends React.Component{
 
@@ -7,7 +9,7 @@ export class User extends React.Component{
     return(
     <div>
     {this.props.userData.map(data=>(
-      <li key={data.id}>{data.name} {data.age}</li>
+      <li key={data.id} onClick={()=>{this.props.select(data)}}>{data.name} {data.age}</li>
     ))}
     </div>
   );
@@ -15,6 +17,9 @@ export class User extends React.Component{
 
 }
 
+function matchDispatchToProps(dispatch){
+  return bindActionCreators({select:selectedUser},dispatch);
+}
 
 function mapStateToProps(state){
   return{
@@ -22,4 +27,4 @@ function mapStateToProps(state){
   }
 }
 
-export default connect(mapStateToProps)(User);
+export default connect(mapStateToProps,matchDispatchToProps)(User);

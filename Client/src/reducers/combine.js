@@ -1,10 +1,10 @@
 import {combineReducers} from "redux";
 import Users from "./reducer-user.js";
-import Admins from "./reducer-admin.js";
+import {selected} from "./reducer-selected.js";
 
 const combineData= combineReducers({
   user:Users,
-  admin:Admins
+  selected:selected
 });
 
 export default combineData;
